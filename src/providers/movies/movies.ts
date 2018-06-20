@@ -10,4 +10,8 @@ export class MoviesProvider {
   listMovies(limit: number = 10): Observable<any> {
     return this._http.get(this.movieApiBaseUrl + '/list_movies.json');
   }
+
+  getOne(id: number) {
+    return this._http.get(this.movieApiBaseUrl + '/movie_details.json?movie_id=' + id);
+  }
 }

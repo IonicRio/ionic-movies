@@ -1,3 +1,5 @@
+import { MovieDetailPage } from './../movie-detail/movie-detail';
+import { NavController } from 'ionic-angular';
 import { MoviesProvider } from './../../providers/movies/movies';
 import { Component } from '@angular/core';
 
@@ -9,15 +11,18 @@ import { Component } from '@angular/core';
 export class HomePage {
   public movies: any;
 
-  constructor(private _movies: MoviesProvider) { }
+  constructor(private _movies: MoviesProvider, private navController: NavController) { }
 
   ionViewDidLoad() {
-    console.log('jeff');
     this._movies.listMovies().subscribe(
       movies => {
         this.movies = movies.data.movies;
       }
     );
+  }
+
+  goToDetail(id) {
+    this.navController.push(MovieDetailPage, { id: id });
   }
 
   save() {

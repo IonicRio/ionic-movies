@@ -1,0 +1,32 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{movie.title}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <img [src]="movie.background_image_original" alt="">
+  <div padding text-justify>
+    <ion-badge color="secondary">
+        <ion-icon name="videocam" item-start></ion-icon>
+        {{movie.genres?.join(", ")}}
+      </ion-badge>
+
+      <ion-badge color="secondary">
+          <ion-icon name="timer" alt="Tempo de duração" title="Tempo de duração" item-start></ion-icon>
+          {{movie.runtime}} min
+      </ion-badge>
+      <ion-badge color="secondary">
+          <ion-icon name="calendar" alt="Ano de lançamento" title="Ano de lançamento" item-start></ion-icon>
+          {{movie.year}}
+      </ion-badge>
+    <p>
+      {{movie.description_full}}
+    </p>
+  </div>
+
+</ion-content>
