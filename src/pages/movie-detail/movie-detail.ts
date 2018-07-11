@@ -31,6 +31,10 @@ export class MovieDetailPage {
       response => {
         this.movie = response.data.movie;
         loading.dismiss();
+      },
+      err => {
+        loading.dismiss();
+        this.navCtrl.pop();
       }
     );
     console.log(this.navParams.get('id'));

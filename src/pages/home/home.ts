@@ -25,7 +25,18 @@ export class HomePage {
     this.navController.push(MovieDetailPage, { id: id });
   }
 
-  save() {
+  search(event: any) {
+    let controll;
+
+    clearTimeout(controll);
+
+    controll = (() => {
+      this._movies.listMovies(10, event.target.value).subscribe(
+        movies => {
+          this.movies = movies.data.movies;
+        }
+      );
+    }, 500);
 
   }
 }

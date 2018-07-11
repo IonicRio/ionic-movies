@@ -2,6 +2,9 @@
   <ion-navbar>
     <ion-title>Movies List</ion-title>
   </ion-navbar>
+  <ion-toolbar>
+    <ion-searchbar (input)="search($event)"></ion-searchbar>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
@@ -17,7 +20,7 @@
 
             <ion-badge color="secondary">
               <ion-icon name="videocam" item-start></ion-icon>
-              {{movie.genres.join(", ")}}
+              {{movie.genres?.join(", ")}}
             </ion-badge>
 
             <ion-badge color="secondary">
